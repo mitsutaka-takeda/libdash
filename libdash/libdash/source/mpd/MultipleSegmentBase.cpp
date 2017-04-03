@@ -11,6 +11,8 @@
 
 #include "MultipleSegmentBase.h"
 
+#include <iostream>
+
 using namespace dash::mpd;
 
 MultipleSegmentBase::MultipleSegmentBase    () :
@@ -32,6 +34,7 @@ const ISegmentTimeline *    MultipleSegmentBase::GetSegmentTimeline     ()  cons
 }
 void                        MultipleSegmentBase::SetSegmentTimeline     (SegmentTimeline *segmentTimeline)
 {
+	std::cout << "SegmentTimeline is updated : " << segmentTimeline << std::endl;
     this->segmentTimeline = segmentTimeline;
 }
 const IURLType*             MultipleSegmentBase::GetBitstreamSwitching  ()  const

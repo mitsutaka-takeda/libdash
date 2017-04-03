@@ -150,3 +150,12 @@ ISegment*           SegmentTemplate::ToSegment                      (const std::
 
     return NULL;
 }
+//
+//uint32_t SegmentTemplate::GetDuration() const {
+//	uint32_t accum = 0;
+//	for (auto n : this->GetSegmentTimeline()->GetAdditionalSubNodes()) {
+//		if (n->GetName() == "S") {
+//			accum += std::stoul(n->GetAttributeValue("d"));
+//		}
+//	}
+//}

@@ -14,7 +14,7 @@
 
 #include <iostream>
 #include <sstream>
-#include <qobject.h>
+#include <QtCore/qobject.h>
 #include "libdash.h"
 #include "IDASHPlayerGuiObserver.h"
 #include "../Managers/IMultimediaManagerObserver.h"

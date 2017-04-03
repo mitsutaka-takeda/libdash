@@ -19,6 +19,7 @@
 #include "ui_qtsampleplayer.h"
 #include "libdash.h"
 #include "../libdashframework/MPD/AdaptationSetHelper.h"
+#include "Renderer/QTGLRenderer.h"
 
 namespace sampleplayer
 {

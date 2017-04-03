@@ -9,7 +9,7 @@
  * and conditions of the applicable license agreement.
  *****************************************************************************/
 
-#include <QtWidgets>
+#include <QtWidgets/QtWidgets>
 #include <vector>
 #include <sstream>
 #include "QtSamplePlayerGui.h"

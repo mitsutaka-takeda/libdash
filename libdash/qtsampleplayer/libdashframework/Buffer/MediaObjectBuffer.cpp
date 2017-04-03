@@ -128,16 +128,21 @@ void            MediaObjectBuffer::SetEOS           (bool value)
     WakeAllConditionVariable(&this->full);
     LeaveCriticalSection(&this->monitorMutex);
 }
-void            MediaObjectBuffer::AttachObserver   (IMediaObjectBufferObserver *observer)
+
+void
+MediaObjectBuffer::AttachObserver   (IMediaObjectBufferObserver *observer)
 {
     this->observer.push_back(observer);
 }
+
 void            MediaObjectBuffer::Notify           ()
 {
     for(size_t i = 0; i < this->observer.size(); i++)
         this->observer.at(i)->OnBufferStateChanged((int)((double)this->mediaobjects.size()/(double)this->maxcapacity*100.0));
 }
-void            MediaObjectBuffer::ClearTail        ()
+
+void     
+MediaObjectBuffer::ClearTail        ()
 {
     EnterCriticalSection(&this->monitorMutex);
 

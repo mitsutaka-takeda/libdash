@@ -43,7 +43,7 @@ namespace dash
                 void    SetIndex                (const std::string& index);
                 void    SetInitialization       (const std::string& initialization);
                 void    SetBitstreamSwitching   (const std::string& bitstreamSwichting);
-
+				//uint32_t GetDuration() const override;
             private:
                 std::string ReplaceParameters   (const std::string& uri, const std::string& representationID, uint32_t bandwidth, uint32_t number, uint32_t time) const;
                 void        FormatChunk         (std::string& uri, uint32_t number) const;

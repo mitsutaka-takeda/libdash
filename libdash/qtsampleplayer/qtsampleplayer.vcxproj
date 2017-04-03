@@ -1,13 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -17,9 +25,17 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -77,6 +93,15 @@
       <AdditionalDependencies>qtmain.lib;$(ProjectDir)..\libav\lib\avcodec.lib;$(ProjectDir)..\libav\lib\avdevice.lib;$(ProjectDir)..\libav\lib\avfilter.lib;$(ProjectDir)..\libav\lib\avformat.lib;$(ProjectDir)..\libav\lib\avutil.lib;$(ProjectDir)..\libav\lib\postproc.lib;$(ProjectDir)..\libav\lib\swresample.lib;$(ProjectDir)..\libav\lib\swscale.lib;$(ProjectDir)..\sdl\lib\x86\SDL.lib;$(ProjectDir)..\sdl\lib\x86\SDLmain.lib;$(SolutionDir)bin\libdash.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Multimedia.lib;Qt5OpenGL.lib;opengl32.lib;glu32.lib;Qt5Widgets.lib;Qt5MultimediaWidgets.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir);C:\Users\VR\src\libdash\libdash\qtsampleplayer\GeneratedFiles;C:\Users\VR\lib\ffmpeg\include;C:\Users\VR\src\libdash\libdash\libdash\include;C:\Qt\5.7\msvc2015_64\include;C:\Qt\5.7\msvc2015_64\include\QtCore;C:\Qt\5.7\msvc2015_64\include\QtGui;C:\Qt\5.7\msvc2015_64\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Users\VR\lib\ffmpeg\lib;C:\Users\VR\lib\libdash\lib;C:\Qt\5.7\msvc2015_64\lib;C:\Users\VR\lib\libcurl\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Qt5Multimedia.lib;Qt5Gui.lib;Qt5Core.lib;Qt5Widgets.lib;Qt5OpenGL.lib;libdash.lib;libavcodec.a;libavformat.a;libswresample.a;libswscale.a;libavutil.a;libcurl.lib;Ws2_32.lib;wldap32.lib;Secur32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="libdashframework\Buffer\AudioChunk.cpp" />
     <ClCompile Include="libdashframework\helpers\Timing.cpp" />
@@ -85,15 +110,6 @@
     <ClCompile Include="libdashframework\Input\DASHReceiver.cpp" />
     <ClCompile Include="libdashframework\Input\MediaObjectDecoder.cpp" />
     <ClCompile Include="libdashframework\MPD\AdaptationSetHelper.cpp" />
-    <ClCompile Include="GeneratedFiles\Debug\moc_DASHPlayer.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_IDASHPlayerGuiObserver.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_QTAudioRenderer.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_DASHPlayer.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -119,12 +135,6 @@
     <ClCompile Include="UI\QtSamplePlayerGui.cpp" />
     <ClCompile Include="Managers\MultimediaStream.cpp" />
     <ClCompile Include="Decoder\LibavDecoder.cpp" />
-    <ClCompile Include="GeneratedFiles\Debug\moc_QTGLRenderer.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_QtSamplePlayerGui.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\qrc_qtsampleplayer.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeader>

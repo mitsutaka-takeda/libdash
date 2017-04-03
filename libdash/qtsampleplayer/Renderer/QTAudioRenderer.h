@@ -14,8 +14,8 @@
 
 #include <QtMultimedia/qaudiooutput.h>
 #include <QtMultimedia/qaudioformat.h>
-#include <qbuffer.h>
-#include <qwidget.h>
+#include <Qt3DRender/qbuffer.h>
+#include <QtWidgets/qwidget.h>
 #include <QtMultimedia/qaudiodeviceinfo.h>
 
 namespace sampleplayer
